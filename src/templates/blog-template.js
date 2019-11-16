@@ -5,7 +5,7 @@ import { Link, graphql } from "gatsby"
 
 export const query = graphql`
   query($id: String!) {
-    post: contentfulBlogPost(id: { eq: $id }) {
+    post: contentfulPosts(id: { eq: $id }) {
       title
       body {
         body

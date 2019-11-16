@@ -23,7 +23,7 @@ export default ({ data }) => {
 
 export const projects = graphql`
   {
-    posts: allContentfulBlogPost {
+    posts: allContentfulPosts {
       nodes {
         slug
         title

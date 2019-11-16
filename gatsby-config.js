@@ -14,5 +14,7 @@ module.exports = {
         accessToken: `w2iwh3PA0Qv1SFm8ogT_BK27mznLynx9rHMzTQg-zvc`,
       },
     },
+    `gatsby-plugin-mdx`,
+    `gatsby-transformer-remark`,
   ],
 }

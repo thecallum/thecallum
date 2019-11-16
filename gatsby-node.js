@@ -10,7 +10,7 @@ exports.createPages = async ({ graphql, actions }) => {
           id
         }
       }
-      posts: allContentfulBlogPost {
+      posts: allContentfulPosts {
         nodes {
           slug
           id
@@ -20,8 +20,6 @@ exports.createPages = async ({ graphql, actions }) => {
   `)
 
   const { projects, posts } = result.data
-
-  // const projects = result.data.allContentfulProjects.nodes
 
   projects.nodes.forEach(({ slug, id }) => {
     createPage({

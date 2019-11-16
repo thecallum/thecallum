@@ -4,7 +4,13 @@ exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
   const result = await graphql(`
     {
-      allContentfulProjects(filter: { visible: { eq: true } }) {
+      projects: allContentfulProjects(filter: { visible: { eq: true } }) {
+        nodes {
+          slug
+          id
+        }
+      }
+      posts: allContentfulBlogPost {
         nodes {
           slug
           id
@@ -13,12 +19,25 @@ exports.createPages = async ({ graphql, actions }) => {
     }
   `)
 
-  const projects = result.data.allContentfulProjects.nodes
+  const { projects, posts } = result.data
 
-  projects.forEach(({ slug, id }) => {
+  // const projects = result.data.allContentfulProjects.nodes
+
+  projects.nodes.forEach(({ slug, id }) => {
     createPage({
       path: `/projects/${slug}`,
       component: path.resolve(`./src/templates/project-template.js`),
+      context: {
+        id,
+      },
+    })
+  })
+
+  // blog posts
+  posts.nodes.forEach(({ slug, id }) => {
+    createPage({
+      path: `/blog/${slug}`,
+      component: path.resolve(`./src/templates/blog-template.js`),
       context: {
         id,
       },

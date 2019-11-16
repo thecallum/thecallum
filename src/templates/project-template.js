@@ -16,6 +16,8 @@ export const query = graphql`
       }
       published(formatString: "Do MMMM YYYY")
       summary
+      github
+      website
       technologies {
         name
       }
@@ -29,7 +31,15 @@ export const query = graphql`
 `
 
 export default ({ data }) => {
-  const { title, body, published, summary, technologies, image } = data.project
+  const {
+    body,
+    published,
+    summary,
+    technologies,
+    image,
+    github,
+    website,
+  } = data.project
 
   const mdx = body.childMdx.body
 
@@ -47,6 +57,12 @@ export default ({ data }) => {
         <MDXRenderer>{mdx}</MDXRenderer>
       </div>
 
+      <p>
+        <a href={github}>Github</a>
+      </p>
+      <p>
+        <a href={website}>Website</a>
+      </p>
       <p>Published: {published}</p>
       <p>Sumary: {summary}</p>
       <p>Technologies</p>

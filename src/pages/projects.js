@@ -12,9 +12,14 @@ export default ({ data }) => {
       <p>Number of projects: {totalCount}</p>
 
       <ul>
-        {projects.map(({ title, slug, image }, index) => (
+        {projects.map(({ title, slug, image, technologies }, index) => (
           <li key={index}>
             <Link to={`/projects/${slug}`}>{title}</Link>
+            <ul>
+              {technologies.map(({ name }, index) => (
+                <li key={index}>{name}</li>
+              ))}
+            </ul>
             <Image
               fluid={image.fluid}
               alt={title}
@@ -34,6 +39,9 @@ export const projects = graphql`
         slug
         title
         summary
+        technologies {
+          name
+        }
         published(formatString: "Do MMMM YYYY")
         image: thumbnail {
           fluid {

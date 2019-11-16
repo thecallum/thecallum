@@ -1,7 +1,7 @@
 import React from "react"
 import Layout from "../components/layout"
 
-import { Link, useStaticQuery, graphql } from "gatsby"
+import { Link, graphql } from "gatsby"
 
 export const query = graphql`
   query($id: String!) {
@@ -18,6 +18,9 @@ export default ({ data }) => {
   return (
     <Layout>
       <h1>{title}</h1>
+
+      <br></br>
+      <Link to="/projects/">Back to projects</Link>
     </Layout>
   )
 }

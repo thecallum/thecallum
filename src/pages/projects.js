@@ -3,7 +3,7 @@ import { graphql, Link } from "gatsby"
 import Layout from "../components/layout"
 
 export default ({ data }) => {
-  const { totalCount, nodes: projects } = data.allContentfulProjects
+  const { totalCount, nodes: projects } = data.projects
 
   return (
     <Layout>
@@ -23,7 +23,7 @@ export default ({ data }) => {
 
 export const projects = graphql`
   {
-    allContentfulProjects(filter: { visible: { eq: true } }) {
+    projects: allContentfulProjects(filter: { visible: { eq: true } }) {
       nodes {
         slug
         title

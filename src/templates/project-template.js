@@ -2,6 +2,7 @@ import React from "react"
 import Layout from "../components/layout"
 import { MDXRenderer } from "gatsby-plugin-mdx"
 import { Link, graphql } from "gatsby"
+import Image from "gatsby-image"
 
 export const query = graphql`
   query($id: String!) {
@@ -18,14 +19,21 @@ export const query = graphql`
       technologies {
         name
       }
+      image: thumbnail {
+        fluid {
+          ...GatsbyContentfulFluid_withWebp
+        }
+      }
     }
   }
 `
 
 export default ({ data }) => {
-  const { title, body, published, summary, technologies } = data.project
+  const { title, body, published, summary, technologies, image } = data.project
 
   const mdx = body.childMdx.body
+
+  console.log(image)
 
   return (
     <Layout>
@@ -47,6 +55,7 @@ export default ({ data }) => {
           <li key={index}>{name}</li>
         ))}
       </ul>
+      <Image fluid={image.fluid} style={{ height: "200px", width: "200px" }} />
       <br></br>
       <Link to="/projects/">Back to projects</Link>
     </Layout>

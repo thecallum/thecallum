@@ -5,15 +5,14 @@ import { Link, graphql } from "gatsby"
 
 export const query = graphql`
   query($id: String!) {
-    contentfulProjects(id: { eq: $id }) {
+    project: contentfulProjects(id: { eq: $id }) {
       title
     }
   }
 `
 
 export default ({ data }) => {
-  const project = data.contentfulProjects
-  const { title } = project
+  const { title } = data.project
 
   return (
     <Layout>

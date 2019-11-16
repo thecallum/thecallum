@@ -6,8 +6,8 @@ export default () => {
   return (
     <nav>
       <ul>
-        {Links.map(({ name, path }) => (
-          <li>
+        {Links.map(({ name, path }, index) => (
+          <li key={index}>
             <Link to={path}>{name}</Link>
           </li>
         ))}

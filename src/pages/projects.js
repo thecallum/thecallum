@@ -11,8 +11,8 @@ export default ({ data }) => {
       <p>Number of projects: {totalCount}</p>
 
       <ul>
-        {projects.map(({ title, slug }) => (
-          <li>
+        {projects.map(({ title, slug }, index) => (
+          <li key={index}>
             <Link to={`/projects/${slug}`}>{title}</Link>
           </li>
         ))}

@@ -16,6 +16,10 @@ export default ({ data }) => {
       <h1>Blog</h1>
       <p>Blog Posts: {totalCount}</p>
 
+      <p>
+        Subscribe to new Posts <button>Click here</button>
+      </p>
+
       <ul>
         {posts.slice(0, index * iteration).map((post, index) => (
           <Post {...post} key={index} />
@@ -40,5 +44,4 @@ export const projects = graphql`
       totalCount
     }
   }
-  
 `

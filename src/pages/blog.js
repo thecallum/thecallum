@@ -31,10 +31,11 @@ export default ({ data }) => {
 
 export const projects = graphql`
   {
-    posts: allContentfulPosts {
+    posts: allContentfulPosts(sort: { fields: published, order: DESC }) {
       nodes {
         slug
         title
+        published(formatString: "Do MMMM YYYY")
       }
       totalCount
     }

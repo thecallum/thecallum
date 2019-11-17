@@ -19,5 +19,12 @@ module.exports = {
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     `gatsby-plugin-styled-components`,
+    {
+      resolve: "gatsby-plugin-mailchimp",
+      options: {
+        endpoint:
+          "https://thecallum.us5.list-manage.com/subscribe/post?u=deb35ddce109e8bb57eeb0913&amp;id=a9172d46ae",
+      },
+    },
   ],
 }

@@ -2,6 +2,7 @@ import React, { useState } from "react"
 import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import Post from "../components/blogPost"
+import Subscribe from "../components/subscribe"
 
 export default ({ data }) => {
   const { totalCount, nodes: posts } = data.posts
@@ -16,9 +17,7 @@ export default ({ data }) => {
       <h1>Blog</h1>
       <p>Blog Posts: {totalCount}</p>
 
-      <p>
-        Subscribe to new Posts <button>Click here</button>
-      </p>
+      <Subscribe />
 
       <ul>
         {posts.slice(0, index * iteration).map((post, index) => (

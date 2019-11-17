@@ -2,12 +2,12 @@ import React from "react"
 
 export default () => {
   return (
-    <form 
-    data-netlify="true" 
-    data-netlift-honypot="bot-field"
-    name="contact" 
-    method="POST"
-    action="/success"
+    <form
+      data-netlify="true"
+      data-netlify-honypot="bot-field"
+      name="contact"
+      method="post"
+      action="/success"
     >
       <div>
         <label>

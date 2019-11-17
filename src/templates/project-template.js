@@ -43,8 +43,6 @@ export default ({ data }) => {
 
   const mdx = body.childMdx.body
 
-  console.log(image)
-
   return (
     <Layout>
       <div

@@ -9,6 +9,7 @@ export default () => {
       method="post"
       action="/success"
     >
+      <input type="hidden" name="form-name" value="contact" />
       <div>
         <label>
           Name

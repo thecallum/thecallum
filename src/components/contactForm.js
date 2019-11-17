@@ -2,7 +2,13 @@ import React from "react"
 
 export default () => {
   return (
-    <form data-netlify="true" name="contact" method="POST">
+    <form 
+    data-netlify="true" 
+    data-netlift-honypot="bot-field"
+    name="contact" 
+    method="POST"
+    action="/success"
+    >
       <div>
         <label>
           Name

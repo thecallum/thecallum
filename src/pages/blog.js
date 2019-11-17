@@ -1,9 +1,15 @@
-import React from "react"
-import { graphql, Link } from "gatsby"
+import React, { useState } from "react"
+import { graphql } from "gatsby"
 import Layout from "../components/layout"
+import Post from "../components/blogPost"
 
 export default ({ data }) => {
   const { totalCount, nodes: posts } = data.posts
+  const [index, updateIndex] = useState(1)
+
+  // number of posts between pages
+  const iteration = 5
+  const showMorePosts = () => updateIndex(index => index + 1)
 
   return (
     <Layout>
@@ -11,12 +17,14 @@ export default ({ data }) => {
       <p>Blog Posts: {totalCount}</p>
 
       <ul>
-        {posts.map(({ title, slug }, index) => (
-          <li key={index}>
-            <Link to={`/blog/${slug}`}>{title}</Link>
-          </li>
+        {posts.slice(0, index * iteration).map((post, index) => (
+          <Post {...post} key={index} />
         ))}
       </ul>
+
+      {totalCount > index * iteration && (
+        <button onClick={showMorePosts}>Show More</button>
+      )}
     </Layout>
   )
 }

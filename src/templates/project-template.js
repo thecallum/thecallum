@@ -1,5 +1,6 @@
 import React from "react"
 import Layout from "../components/layout"
+import Technologies from "../components/projectTechnologies"
 import { MDXRenderer } from "gatsby-plugin-mdx"
 import { Link, graphql } from "gatsby"
 import Image from "gatsby-image"
@@ -64,11 +65,8 @@ export default ({ data }) => {
       <p>Published: {published}</p>
       <p>Sumary: {summary}</p>
       <p>Technologies</p>
-      <ul>
-        {technologies.map(({ name }, index) => (
-          <li key={index}>{name}</li>
-        ))}
-      </ul>
+      <Technologies technologies={technologies} />
+
       <Image fluid={image.fluid} style={{ height: "200px", width: "200px" }} />
       <br></br>
       <Link to="/projects/">Back to projects</Link>

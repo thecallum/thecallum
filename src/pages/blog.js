@@ -40,4 +40,5 @@ export const projects = graphql`
       totalCount
     }
   }
+  
 `

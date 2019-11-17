@@ -1,7 +1,7 @@
 import React from "react"
-import { graphql, Link } from "gatsby"
+import { graphql } from "gatsby"
 import Layout from "../components/layout"
-import Image from "gatsby-image"
+import Project from "../components/singleProject"
 
 export default ({ data }) => {
   const { totalCount, nodes: projects } = data.projects
@@ -11,21 +11,9 @@ export default ({ data }) => {
       <h1>Projects</h1>
       <p>Number of projects: {totalCount}</p>
 
-      <ul>
-        {projects.map(({ title, slug, image, technologies }, index) => (
-          <li key={index}>
-            <Link to={`/projects/${slug}`}>{title}</Link>
-            <ul>
-              {technologies.map(({ name }, index) => (
-                <li key={index}>{name}</li>
-              ))}
-            </ul>
-            <Image
-              fluid={image.fluid}
-              alt={title}
-              style={{ width: "50px", height: "50px" }}
-            />
-          </li>
+      <ul style={{ margin: 0, padding: 0 }}>
+        {projects.map((project, index) => (
+          <Project {...project} key={index} />
         ))}
       </ul>
     </Layout>
@@ -34,7 +22,10 @@ export default ({ data }) => {
 
 export const projects = graphql`
   {
-    projects: allContentfulProjects(filter: { visible: { eq: true } }) {
+    projects: allContentfulProjects(
+      filter: { visible: { eq: true } }
+      sort: { fields: published, order: DESC }
+    ) {
       nodes {
         slug
         title

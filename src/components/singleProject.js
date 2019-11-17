@@ -8,6 +8,9 @@ const Project = styled.li`
   padding: 15px;
   cursor: pointer;
   display: block;
+  border-radius: 3px;
+  background-color: hsl(260, 50%, 90%);
+  margin: 0 0 30px 30px;
 
   * {
     text-decoration: none;

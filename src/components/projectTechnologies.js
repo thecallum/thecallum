@@ -6,8 +6,8 @@ const Technologies = styled.ul`
 
   display: flex;
 
-  padding: 20px 0;
-  margin: 0 0 -10px -15px;
+  padding: 0;
+  margin: 15px 0 -10px -15px;
 
   li {
     display: block;

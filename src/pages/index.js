@@ -2,9 +2,13 @@ import React from "react"
 import { graphql, Link } from "gatsby"
 
 import Layout from "../components/layout"
+import Projects from "../components/projects"
 
 export default ({ data }) => {
   const { title } = data.site.siteMetadata
+  const projects = data.projects.nodes
+
+  console.log(data)
 
   const skills = [
     "HTML5",
@@ -38,7 +42,7 @@ export default ({ data }) => {
       </ul>
 
       <h2>Latest Projects</h2>
-      <p>Last three projects</p>
+      <Projects projects={projects} />
 
       <Link to="/projects/">View All Projects</Link>
 
@@ -51,6 +55,27 @@ export default ({ data }) => {
 
 export const query = graphql`
   {
+    projects: allContentfulProjects(
+      filter: { visible: { eq: true } }
+      sort: { fields: published, order: DESC }
+      limit: 3
+    ) {
+      nodes {
+        slug
+        title
+        summary
+        technologies {
+          name
+        }
+        published(formatString: "Do MMMM YYYY")
+        image: thumbnail {
+          fluid {
+            ...GatsbyContentfulFluid_withWebp
+          }
+        }
+      }
+      totalCount
+    }
     site {
       siteMetadata {
         title

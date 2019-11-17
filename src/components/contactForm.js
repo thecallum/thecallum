@@ -7,7 +7,7 @@ export default () => {
       data-netlify-honypot="bot-field"
       name="contact"
       method="post"
-      action="/success"
+      action="/contact/success/"
     >
       <input type="hidden" name="form-name" value="contact" />
       <div>

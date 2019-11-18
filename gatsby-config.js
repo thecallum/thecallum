@@ -44,5 +44,7 @@ module.exports = {
         domains: [`https://images.ctfassets.net/`],
       },
     },
+
+    `gatsby-plugin-netlify-cache`,
   ],
 }

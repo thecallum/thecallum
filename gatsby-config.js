@@ -1,3 +1,5 @@
+require("dotenv").config()
+
 module.exports = {
   siteMetadata: {
     title: `Callum Macpherson`,
@@ -10,9 +12,9 @@ module.exports = {
     {
       resolve: `gatsby-source-contentful`,
       options: {
-        spaceId: `j6go2m3dzf1w`,
+        spaceId: process.env.CONTENTFUL_SPACE_ID,
         // Learn about environment variables: https://gatsby.dev/env-vars
-        accessToken: `w2iwh3PA0Qv1SFm8ogT_BK27mznLynx9rHMzTQg-zvc`,
+        accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
       },
     },
     `gatsby-plugin-mdx`,
@@ -23,8 +25,7 @@ module.exports = {
     {
       resolve: "gatsby-plugin-mailchimp",
       options: {
-        endpoint:
-          "https://thecallum.us5.list-manage.com/subscribe/post?u=deb35ddce109e8bb57eeb0913&amp;id=a9172d46ae",
+        endpoint: process.env.MAILCHIMP_ENDPOINT,
       },
     },
 

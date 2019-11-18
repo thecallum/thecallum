@@ -26,5 +26,8 @@ module.exports = {
           "https://thecallum.us5.list-manage.com/subscribe/post?u=deb35ddce109e8bb57eeb0913&amp;id=a9172d46ae",
       },
     },
+
+    `gatsby-plugin-sitemap`,
+    `gatsby-plugin-robots-txt`,
   ],
 }

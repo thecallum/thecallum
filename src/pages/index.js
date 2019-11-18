@@ -8,8 +8,6 @@ export default ({ data }) => {
   const { title } = data.site.siteMetadata
   const projects = data.projects.nodes
 
-  console.log(data)
-
   const skills = [
     "HTML5",
     "CSS 3",

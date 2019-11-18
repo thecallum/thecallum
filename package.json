@@ -20,6 +20,8 @@
     "gatsby-image": "^2.2.33",
     "gatsby-plugin-mailchimp": "^5.1.2",
     "gatsby-plugin-mdx": "^1.0.56",
+    "gatsby-plugin-preconnect": "^1.0.5",
+    "gatsby-plugin-react-helmet": "^3.1.15",
     "gatsby-plugin-robots-txt": "^1.5.0",
     "gatsby-plugin-sharp": "^2.3.0",
     "gatsby-plugin-sitemap": "^2.2.21",
@@ -30,6 +32,7 @@
     "normalize.css": "^8.0.1",
     "react": "^16.11.0",
     "react-dom": "^16.11.0",
+    "react-helmet": "^5.2.1",
     "styled-components": "^4.4.1"
   },
   "devDependencies": {

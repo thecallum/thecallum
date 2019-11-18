@@ -1,5 +1,7 @@
 import React from "react"
 import Layout from "../components/layout"
+import SEO from "../components/seo"
+
 import { MDXRenderer } from "gatsby-plugin-mdx"
 
 import { graphql, Link } from "gatsby"
@@ -19,12 +21,13 @@ export const query = graphql`
 `
 
 export default ({ data }) => {
-  const { body } = data.post
+  const { body, title } = data.post
 
   const mdx = body.childMdx.body
 
   return (
     <Layout>
+      <SEO title={title} description={title} />
       <div
         style={{
           margin: "30px 0",

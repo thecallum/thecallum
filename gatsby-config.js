@@ -3,6 +3,7 @@ module.exports = {
     title: `Callum Macpherson`,
     siteUrl: `https://thecallum.com`,
     description: `Portfolio site build on Gatsby`,
+    author: "Callum Macpherson",
   },
 
   plugins: [
@@ -27,7 +28,20 @@ module.exports = {
       },
     },
 
-    `gatsby-plugin-sitemap`,
+    {
+      resolve: `gatsby-plugin-sitemap`,
+      options: {
+        exclude: [`/404/`, `/contact/success/`],
+      },
+    },
     `gatsby-plugin-robots-txt`,
+    `gatsby-plugin-react-helmet`,
+
+    {
+      resolve: `gatsby-plugin-preconnect`,
+      options: {
+        domains: [`http://images.ctfassets.net/`],
+      },
+    },
   ],
 }

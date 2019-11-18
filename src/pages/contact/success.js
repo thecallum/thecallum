@@ -1,6 +1,8 @@
 import React from "react"
 import Layout from "../../components/layout"
 
+// Hide from search index
+
 export default () => {
   return (
     <Layout>

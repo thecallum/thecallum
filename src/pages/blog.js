@@ -3,6 +3,7 @@ import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import Post from "../components/blogPost"
 import Subscribe from "../components/subscribe"
+import SEO from "../components/seo"
 
 export default ({ data }) => {
   const { totalCount, nodes: posts } = data.posts
@@ -14,6 +15,7 @@ export default ({ data }) => {
 
   return (
     <Layout>
+      <SEO title="blog" description="Blog posts" />
       <h1>Blog</h1>
       <p>Blog Posts: {totalCount}</p>
 

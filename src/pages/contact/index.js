@@ -1,10 +1,12 @@
 import React from "react"
 import Layout from "../../components/layout"
 import Form from "../../components/contactForm"
+import SEO from "../../components/seo"
 
 export default () => {
   return (
     <Layout>
+      <SEO title="Contact" description="Contact page" />
       <h1>Contact Me</h1>
 
       <p>Have a question?</p>

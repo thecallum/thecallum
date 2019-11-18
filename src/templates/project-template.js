@@ -4,6 +4,7 @@ import Technologies from "../components/projectTechnologies"
 import { MDXRenderer } from "gatsby-plugin-mdx"
 import { Link, graphql } from "gatsby"
 import Image from "gatsby-image"
+import SEO from "../components/seo"
 
 export const query = graphql`
   query($id: String!) {
@@ -33,6 +34,7 @@ export const query = graphql`
 
 export default ({ data }) => {
   const {
+    title,
     body,
     published,
     summary,
@@ -46,6 +48,7 @@ export default ({ data }) => {
 
   return (
     <Layout>
+      <SEO title={title} description={summary} />
       <div
         style={{
           margin: "30px 0",

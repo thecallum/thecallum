@@ -1,6 +1,7 @@
 import React from "react"
 import { graphql } from "gatsby"
 import Layout from "../components/layout"
+import SEO from "../components/seo"
 
 import Projects from "../components/projects"
 
@@ -9,6 +10,7 @@ export default ({ data }) => {
 
   return (
     <Layout>
+      <SEO title="projects" description="List of projects" />
       <h1>Projects</h1>
       <p>Number of projects: {totalCount}</p>
 

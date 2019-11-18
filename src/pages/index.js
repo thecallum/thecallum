@@ -3,6 +3,9 @@ import { graphql, Link } from "gatsby"
 
 import Layout from "../components/layout"
 import Projects from "../components/projects"
+import SEO from "../components/seo"
+
+const description = "Short paragraph about me. Maybe mention where I live??.."
 
 export default ({ data }) => {
   const { title } = data.site.siteMetadata
@@ -26,13 +29,14 @@ export default ({ data }) => {
 
   return (
     <Layout>
+      <SEO title={title} description={description} />
       <h1>{title}</h1>
 
-      <p>Short paragraph about me. Maybe mention where I live??..</p>
+      <p>{description}</p>
       <Link to="/about/">Find out more about me</Link>
 
       <h2>Skills</h2>
-      <p>// skills relate to projects using the skill??</p>
+      <p>skills relate to projects using the skill??</p>
       <ul>
         {skills.map(skill => (
           <li>{skill}</li>

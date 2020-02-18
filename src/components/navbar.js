@@ -4,8 +4,20 @@ import Links from "../constants/links"
 import styled from "styled-components"
 
 const Nav = styled.nav`
-  padding: 30px;
-  background-color: hsl(260, 50%, 50%);
+  padding: 60px 60px 60px;
+  // background-color: hsl(260, 50%, 50%);
+
+  font-family: sans-serif;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .logo {
+    height: 60px;
+    margin-right: 30px;
+  }
+
   ul {
     margin: 0;
     padding: 0;
@@ -16,7 +28,11 @@ const Nav = styled.nav`
   li {
     display: block;
     margin: 0 0 10px 15px;
-    color: #fff;
+    color: #999;
+
+    &:hover {
+      color: #0a0a0a;
+    }
   }
 
   a {
@@ -28,10 +44,11 @@ const Nav = styled.nav`
 export default () => {
   return (
     <Nav>
+      <img className="logo" src="/logo.png" alt="" />
       <ul>
         {Links.map(({ name, path }, index) => (
           <li key={index}>
-            <Link to={path}>{name}</Link>
+            <Link to={path}>{name.toUpperCase()}</Link>
           </li>
         ))}
       </ul>

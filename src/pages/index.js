@@ -1,56 +1,46 @@
 import React from "react"
-import { graphql, Link } from "gatsby"
-
+import { graphql } from "gatsby"
 import Layout from "../components/layout"
-import Projects from "../components/projects"
 import SEO from "../components/seo"
+import ButtonLink from "../components/buttonLink"
 
 const description = "Short paragraph about me. Maybe mention where I live??.."
 
 export default ({ data }) => {
   const { title } = data.site.siteMetadata
-  const projects = data.projects.nodes
-
-  const skills = [
-    "HTML5",
-    "CSS 3",
-    "SCSS",
-    "JavaScript/ES6",
-    "React",
-    "Gatsby",
-    "Vue",
-    "PHP",
-    "NodeJS",
-    "Express",
-    "Mysql",
-    "docker",
-    "git",
-  ]
 
   return (
     <Layout>
       <SEO title={title} description={description} />
-      <h1>{title}</h1>
+      <h1 style={{ fontWeight: "normal", textAlign: "center" }}>
+        <strong style={{ color: "var(--color-primary)" }}>
+          Hello, I'm Callum.
+        </strong>
+        <span>I'm a full stack developer</span>
+      </h1>
 
-      <p>{description}</p>
-      <Link to="/about/">Find out more about me</Link>
+      <h3 style={{ textAlign: "center", fontWeight: "normal" }}>
+        I’m passionate about side projects and helping creatives improve their
+        craft and process. Check out my work and come chat to me on Twitter.
+      </h3>
 
-      <h2>Skills</h2>
-      <p>skills relate to projects using the skill??</p>
-      <ul>
-        {skills.map(skill => (
-          <li>{skill}</li>
-        ))}
-      </ul>
+      <hr style={{ marginTop: 60, width: "calc(100% - 60px)" }} />
 
-      <h2>Latest Projects</h2>
-      <Projects projects={projects} />
-
-      <Link to="/projects/">View All Projects</Link>
-
-      <h3>Why not check out my blog?</h3>
-
-      <Link to="/blog/">View Blog</Link>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          marginLeft: -30,
+          marginTop: 30,
+        }}
+      >
+        <ButtonLink to="/portfolio">
+          <span>View Portfolio</span>
+        </ButtonLink>
+        <ButtonLink to="/contact">
+          <span>Contact</span>
+        </ButtonLink>
+      </div>
     </Layout>
   )
 }

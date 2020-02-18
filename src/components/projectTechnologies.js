@@ -5,6 +5,7 @@ const Technologies = styled.ul`
   /* background-color: red; */
 
   display: flex;
+  flex-wrap: wrap;
 
   padding: 0;
   margin: 15px 0 -10px -15px;

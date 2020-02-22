@@ -1,0 +1,51 @@
+.index-title {
+  // color: #eee;
+
+  font-weight: 100;
+  text-align: center;
+  font-size: 64px;
+  margin-bottom: 120;
+  margin-top: 120;
+
+  &::after {
+    display: none;
+  }
+
+  strong {
+    color: hsl(192.5, 46.1%, 32.5%);
+  }
+}
+
+.index-subtitle {
+  text-align: center;
+  margin: 60px 0;
+  font-weight: normal;
+
+  font-size: 42px;
+  // line-height: ;
+
+  &::after {
+    display: none;
+  }
+}
+
+.index-vertical-space {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.index-featured-projects {
+  background: #222;
+  color: #fff;
+  height: 100%;
+}
+
+.index-full-height {
+  // background: orange;
+  // padding: 60px;
+  // height: 100%;
+  height: calc(100vh - 120px);
+  // min-height: 100%;
+}

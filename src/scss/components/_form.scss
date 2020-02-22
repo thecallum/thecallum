@@ -1,0 +1,39 @@
+.input-group {
+  // background: orange;
+  // height: 100px;
+  position: relative;
+}
+
+.input-label {
+  // position: absolute;
+  // display: block;
+  // top: 15px;
+}
+.input-text,
+.input-textarea {
+  display: block;
+  width: 100%;
+  // background: #eee;
+  border: 2px solid #222;
+  margin-top: 15px;
+
+  // border: none;
+  border-radius: 3px;
+  margin-bottom: 30px;
+  color: #444;
+
+  outline: none;
+
+  // background: transparent;
+}
+.input-text {
+  height: 50px;
+  padding: 0 10px;
+}
+
+.input-textarea {
+  resize: none;
+  height: 150px;
+
+  padding: 10px;
+}

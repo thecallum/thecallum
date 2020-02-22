@@ -1,12 +1,12 @@
 import React from "react"
-import Navbar from "./navbar"
+import Header from "./header"
 
-import "normalize.css/normalize.css"
+import "../scss/app.scss"
 
 export default ({ children }) => (
   <>
-    <Navbar />
+    <Header />
 
-    <main>{children}</main>
+    <div className="page-layout-main">{children}</div>
   </>
 )

@@ -21,14 +21,7 @@ module.exports = {
     `gatsby-transformer-remark`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
-    `gatsby-plugin-styled-components`,
-    {
-      resolve: "gatsby-plugin-mailchimp",
-      options: {
-        endpoint: process.env.MAILCHIMP_ENDPOINT,
-      },
-    },
-
+    `gatsby-plugin-sass`,
     {
       resolve: `gatsby-plugin-sitemap`,
       options: {

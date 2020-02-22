@@ -1,0 +1,121 @@
+.skills {
+  display: grid;
+  // grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr;
+  // margin: 0 auto;
+
+  grid-gap: 30px;
+
+  &-column {
+    // background: orange;
+    border: 2px solid #222;
+    border-color: #ddd;
+    padding: 30px;
+    border-radius: 3px;
+    width: 100%;
+    // max-width: 600px;
+    margin: 0 auto;
+
+    display: flex;
+    // justify-content: space-between;
+    flex-direction: column;
+  }
+
+  &-title {
+    margin: 0;
+    text-align: center;
+    margin-top: 30px;
+  }
+
+  &-top {
+    // margin-right: 30px;
+    // background: orange;
+    // width: 100%;
+    // max-width: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+
+  &-icon {
+    // height: 60px;
+    font-size: 80px;
+    margin: 0 auto;
+    display: block;
+    color: #333;
+  }
+
+  &-list {
+    margin: 0;
+    padding: 0;
+    // margin-top: 30px;
+    // margin-left: 30px;
+    width: 100%;
+    max-width: 200px;
+
+    // background: orange;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  &-list-item {
+    display: block;
+    margin: 0;
+    padding: 0;
+    color: #333;
+    // text-align: center;
+    // font-family: "europa";
+    font-family: "Montserrat";
+    // text-transform: ;
+    margin-bottom: 5px;
+
+    &::before {
+      content: "";
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      background: hsl(192.5, 46.1%, 32.5%);
+      border-radius: 25%;
+      margin-right: 15px;
+    }
+  }
+}
+
+@media (min-width: 600px) {
+  .skills {
+    // display: grid;
+    // grid-template-columns: 1fr 1fr 1fr;
+    // grid-template-columns: 1fr;
+
+    &-column {
+      flex-direction: row;
+      justify-content: space-between;
+      width: 480px;
+      margin: 0;
+    }
+
+    &-top {
+      margin-bottom: 0;
+      margin-right: 30px;
+    }
+  }
+}
+
+@media (min-width: 1000px) {
+  .skills {
+    grid-template-columns: 1fr 1fr 1fr;
+
+    &-column {
+      flex-direction: column;
+      justify-content: flex-start;
+      width: 100%;
+    }
+
+    &-top {
+      margin-bottom: 30px;
+      margin-right: 0;
+    }
+  }
+}

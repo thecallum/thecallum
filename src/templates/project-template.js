@@ -1,10 +1,10 @@
 import React from "react"
-import Layout from "../components/layout"
-import Technologies from "../components/projectTechnologies"
+// import Layout from "../components/layout"
+// import Technologies from "../components/projectTechnologies"
 import { MDXRenderer } from "gatsby-plugin-mdx"
 import { Link, graphql } from "gatsby"
-import Image from "gatsby-image"
-import SEO from "../components/seo"
+// import Image from "gatsby-image"
+// import SEO from "../components/seo"
 
 export const query = graphql`
   query($id: String!) {
@@ -46,33 +46,35 @@ export default ({ data }) => {
 
   const mdx = body.childMdx.body
 
-  return (
-    <Layout>
-      <SEO title={title} description={summary} />
-      <div
-        style={{
-          margin: "30px 0",
-          backgroundColor: "#f9f9f9",
-          padding: "30px",
-        }}
-      >
-        <MDXRenderer>{mdx}</MDXRenderer>
-      </div>
+  return <div>Project template</div>
 
-      <p>
-        <a href={github}>Github</a>
-      </p>
-      <p>
-        <a href={website}>Website</a>
-      </p>
-      <p>Published: {published}</p>
-      <p>Sumary: {summary}</p>
-      <p>Technologies</p>
-      <Technologies technologies={technologies} />
+  // return (
+  //   <Layout>
+  //     <SEO title={title} description={summary} />
+  //     <div
+  //       style={{
+  //         margin: "30px 0",
+  //         backgroundColor: "#f9f9f9",
+  //         padding: "30px",
+  //       }}
+  //     >
+  //       <MDXRenderer>{mdx}</MDXRenderer>
+  //     </div>
 
-      <Image fluid={image.fluid} style={{ height: "200px", width: "200px" }} />
-      <br></br>
-      <Link to="/projects/">Back to projects</Link>
-    </Layout>
-  )
+  //     <p>
+  //       <a href={github}>Github</a>
+  //     </p>
+  //     <p>
+  //       <a href={website}>Website</a>
+  //     </p>
+  //     <p>Published: {published}</p>
+  //     <p>Sumary: {summary}</p>
+  //     <p>Technologies</p>
+  //     <Technologies technologies={technologies} />
+
+  //     <Image fluid={image.fluid} style={{ height: "200px", width: "200px" }} />
+  //     <br></br>
+  //     <Link to="/projects/">Back to projects</Link>
+  //   </Layout>
+  // )
 }

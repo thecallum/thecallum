@@ -13,9 +13,11 @@
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.27",
+    "@fortawesome/free-solid-svg-icons": "^5.12.1",
+    "@fortawesome/react-fontawesome": "^0.1.8",
     "@mdx-js/mdx": "^1.5.1",
     "@mdx-js/react": "^1.5.1",
-    "babel-plugin-styled-components": "^1.10.6",
     "dotenv": "^8.2.0",
     "gatsby": "^2.17.11",
     "gatsby-image": "^2.2.33",
@@ -25,17 +27,18 @@
     "gatsby-plugin-preconnect": "^1.0.5",
     "gatsby-plugin-react-helmet": "^3.1.15",
     "gatsby-plugin-robots-txt": "^1.5.0",
+    "gatsby-plugin-sass": "^2.1.29",
     "gatsby-plugin-sharp": "^2.3.0",
     "gatsby-plugin-sitemap": "^2.2.21",
-    "gatsby-plugin-styled-components": "^3.1.13",
     "gatsby-source-contentful": "^2.1.59",
     "gatsby-transformer-remark": "^2.6.35",
     "gatsby-transformer-sharp": "^2.3.5",
+    "node-sass": "^4.13.1",
     "normalize.css": "^8.0.1",
     "react": "^16.11.0",
     "react-dom": "^16.11.0",
-    "react-helmet": "^5.2.1",
-    "styled-components": "^4.4.1"
+    "react-fontawesome": "^1.7.1",
+    "react-helmet": "^5.2.1"
   },
   "devDependencies": {
     "prettier": "^1.19.1"

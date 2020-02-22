@@ -1,0 +1,47 @@
+.button {
+  color: #0a0a0a;
+  text-decoration: none;
+  display: block;
+  border: 2px solid #222;
+  padding: 15px 30px;
+  background: #fff;
+  // width: 300px;
+  // margin: 0 15px;
+  font-weight: bold;
+  // border-radius: 6px;
+  text-transform: uppercase;
+  text-align: center;
+  // width: auto;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &:visited {
+    color: inherit;
+  }
+
+  &:hover {
+    // border-radius: 50%;
+    // background: #222;
+    // background: hsl(192.5, 46.1%, 32.5%);
+    // color: #fff;
+
+    border-style: dashed;
+    // background: #f9f9f9;
+    // color: #666;
+    // font-size: 15;
+    // text-transform: lowercase;
+  }
+}
+
+.button-white {
+  @extend .button;
+  color: #fff;
+  border-color: #fff;
+
+  &:hover {
+    background: #fff;
+    color: #222;
+  }
+}

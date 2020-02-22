@@ -23,7 +23,7 @@ exports.createPages = async ({ graphql, actions }) => {
 
   projects.nodes.forEach(({ slug, id }) => {
     createPage({
-      path: `/projects/${slug}`,
+      path: `/portfolio/${slug}`,
       component: path.resolve(`./src/templates/project-template.js`),
       context: {
         id,
@@ -31,14 +31,14 @@ exports.createPages = async ({ graphql, actions }) => {
     })
   })
 
-  // blog posts
-  posts.nodes.forEach(({ slug, id }) => {
-    createPage({
-      path: `/blog/${slug}`,
-      component: path.resolve(`./src/templates/blog-template.js`),
-      context: {
-        id,
-      },
-    })
-  })
+  // // blog posts
+  // posts.nodes.forEach(({ slug, id }) => {
+  //   createPage({
+  //     path: `/blog/${slug}`,
+  //     component: path.resolve(`./src/templates/blog-template.js`),
+  //     context: {
+  //       id,
+  //     },
+  //   })
+  // })
 }

@@ -1,8 +1,8 @@
 import React from "react"
-import { graphql } from "gatsby"
+import { graphql, Link } from "gatsby"
 import Layout from "../components/layout"
-import SEO from "../components/seo"
-import ButtonLink from "../components/buttonLink"
+// import SEO from "../components/seo"
+// import ButtonLink from "../components/buttonLink"
 
 const description = "Short paragraph about me. Maybe mention where I live??.."
 
@@ -11,36 +11,66 @@ export default ({ data }) => {
 
   return (
     <Layout>
-      <SEO title={title} description={description} />
-      <h1 style={{ fontWeight: "normal", textAlign: "center" }}>
-        <strong style={{ color: "var(--color-primary)" }}>
-          Hello, I'm Callum.
-        </strong>
-        <span>I'm a full stack developer</span>
-      </h1>
+      <div className="index-full-height">
+        <div className="index-vertical-space">
+          <div className="container">
+            <h1 className="index-title">
+              <strong>Hello, I'm Callum.</strong>
+              &nbsp;
+              <span style={{ display: "inline-block" }}>
+                I'm a full stack developer based in Colchester, UK
+              </span>
+            </h1>
 
-      <h3 style={{ textAlign: "center", fontWeight: "normal" }}>
-        I’m passionate about side projects and helping creatives improve their
-        craft and process. Check out my work and come chat to me on Twitter.
-      </h3>
+            <h2 className="index-subtitle">
+              Mastering the web, one project at a time.
+            </h2>
 
-      <hr style={{ marginTop: 60, width: "calc(100% - 60px)" }} />
-
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          marginLeft: -30,
-          marginTop: 30,
-        }}
-      >
-        <ButtonLink to="/portfolio">
-          <span>View Portfolio</span>
-        </ButtonLink>
-        <ButtonLink to="/contact">
-          <span>Contact</span>
-        </ButtonLink>
+            <div
+              style={{
+                display: "grid",
+                gridTemplateColumns: "1fr 1fr 1fr",
+                gridGap: "30px",
+                width: "600px",
+                margin: "0 auto",
+              }}
+            >
+              <Link className="button" to="/portfolio">
+                <span>View Portfolio</span>
+              </Link>
+              <Link className="button" to="/portfolio">
+                <span>Skills</span>
+              </Link>
+              <Link className="button" to="/contact">
+                <span>Contact</span>
+              </Link>
+            </div>
+          </div>
+          {/* <div className="down-arrow"></div> */}
+        </div>
       </div>
+
+      {/* <div className="index-full-height">
+        <div className="index-featured-projects">
+          <div className="container">
+            <h2>Featured projects</h2>
+            <Link class="button-white" to="portfolio">
+              View all Projects
+            </Link>
+          </div>
+        </div>
+      </div>
+
+      <div className="index-full-height">
+        <div className="container">
+          <h2>Let's work together</h2>
+          <Link to="/contact/">Get in touch</Link>
+          <ul>
+            <li>hello@thecallum.com</li>
+            <li>On LinkedIn</li>
+          </ul>
+        </div>
+      </div> */}
     </Layout>
   )
 }

@@ -1,48 +1,12 @@
 import React from "react"
-import Navbar from "./navbar"
-import styled, { createGlobalStyle } from "styled-components"
+import Header from "./header"
 
-import "normalize.css/normalize.css"
-
-const GlobalStyle = createGlobalStyle`
-@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap');
-
-:root {
-  --color-primary: hsl(289, 24.8%, 47.5%);
-}
-
-  html,
-  body {
-    height: 100%;
-  }
-
-*,*::before,*::after {
-  box-sizing: border-box
-}
-
-
-  body {
-    font-family: 'Source Sans Pro', sans-serif;  
-  }
-`
-
-const Container = styled.div`
-  padding: 30px;
-  // background: orange;
-  height: 100%;
-  flex-grow: 1;
-`
+import "../scss/app.scss"
 
 export default ({ children }) => (
   <>
-    <GlobalStyle />
+    <Header />
 
-    <div style={{ display: "flex", flexDirection: "column", height: "100vh" }}>
-      <Navbar />
-
-      <Container>
-        <main>{children}</main>
-      </Container>
-    </div>
+    <div className="page-layout-main">{children}</div>
   </>
 )

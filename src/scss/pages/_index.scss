@@ -1,51 +1,104 @@
-.index-title {
-  // color: #eee;
+.index {
+  &-title {
+    font-weight: 100;
+    text-align: center;
+    font-size: 32px;
+    margin: 0 0 30px;
 
-  font-weight: 100;
-  text-align: center;
-  font-size: 64px;
-  margin-bottom: 120;
-  margin-top: 120;
+    &::after {
+      display: none;
+    }
 
-  &::after {
-    display: none;
+    strong {
+      color: $color-blue-primary;
+    }
+
+    span {
+      display: block;
+    }
   }
 
-  strong {
-    color: hsl(192.5, 46.1%, 32.5%);
+  &-subtitle {
+    text-align: center;
+    margin: 30px 0;
+    font-weight: normal;
+    font-size: 24px;
+
+    &::after {
+      display: none;
+    }
+  }
+  &-featured-projects {
+    background: $color-black-primary;
+    color: $color-white-primary;
+    height: 100%;
+  }
+
+  &-links {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 30px;
+    margin: 0 auto;
+    width: 500px;
+    max-width: 100%;
+  }
+  &-link {
+    width: 100%;
   }
 }
 
-.index-subtitle {
-  text-align: center;
-  margin: 60px 0;
-  font-weight: normal;
-
-  font-size: 42px;
-  // line-height: ;
-
-  &::after {
-    display: none;
-  }
-}
-
-.index-vertical-space {
+.index-centered {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  height: 100%;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
 }
 
-.index-featured-projects {
-  background: #222;
-  color: #fff;
-  height: 100%;
+@media (min-width: 800px) {
+  .index-centered {
+    min-height: calc(100vh - 120px);
+    justify-content: center;
+  }
 }
 
-.index-full-height {
-  // background: orange;
-  // padding: 60px;
-  // height: 100%;
-  height: calc(100vh - 120px);
-  // min-height: 100%;
+@media (min-width: 400px) {
+  .index {
+    &-title {
+      font-size: 48px;
+
+      span {
+        display: inline;
+      }
+    }
+    &-subtitle {
+      font-size: 32px;
+    }
+  }
+}
+
+@media (min-width: 450px) {
+  .index {
+    &-subtitle {
+      margin: 60px auto;
+    }
+  }
+}
+
+@media (min-width: 600px) {
+  .index-title {
+    font-size: 64px;
+  }
+}
+
+@media (min-width: 800px) {
+  .index {
+    &-links {
+      grid-template-columns: 1fr 1fr 1fr;
+      width: 100%;
+    }
+    &-subtitle {
+      margin: 60px auto 120px;
+    }
+  }
 }

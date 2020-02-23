@@ -1,26 +1,44 @@
 .header {
-  background: #fff;
+  background: $color-white-primary;
   z-index: 100;
   position: fixed;
   padding: 30px;
   width: 100%;
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid $color-white-secondary;
   height: 120px;
 
   display: flex;
   justify-content: space-between;
   align-items: center;
 
-  &-logo {
-    height: 60px;
+  &-main {
+    display: flex;
+    align-items: center;
     margin-right: 30px;
+    margin-left: -30px;
+  }
+
+  &-icon {
+    height: 60px;
+  }
+
+  &-logo {
+    font-family: "Source Code Pro";
+    display: none;
+  }
+
+  &-icon,
+  &-logo {
+    margin-left: 30px;
   }
 
   &-links {
     margin: 0;
     padding: 0;
+    height: 100%;
 
     display: flex;
+    align-items: center;
 
     a {
       color: inherit;
@@ -30,32 +48,29 @@
 
   &-link {
     display: block;
-    margin: 0;
     padding: 0;
     margin-left: 30px;
-    position: relative;
     cursor: pointer;
 
-    &::before {
-      content: "";
-      display: block;
-      width: 100%;
-      height: 2px;
-      bottom: -2px;
-      left: 0;
-      position: absolute;
-      background: #222;
-      border-radius: 2px;
-
-      display: none;
-    }
-
     &:hover {
-      margin-top: -2px;
-
-      &::before {
-        display: block;
+      margin-top: -1px;
+      > a {
+        padding-bottom: 1px;
       }
     }
+    &.active {
+      color: $color-blue-primary;
+    }
+
+    > a {
+      display: block;
+      height: 100%;
+    }
+  }
+}
+
+@media (min-width: 600px) {
+  .header-logo {
+    display: block;
   }
 }

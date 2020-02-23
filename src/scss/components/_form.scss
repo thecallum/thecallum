@@ -13,14 +13,14 @@
 .input-textarea {
   display: block;
   width: 100%;
-  // background: #eee;
-  border: 2px solid #222;
+  // background: $color-white-secondary;
+  border: 2px solid $color-black-primary;
   margin-top: 15px;
 
   // border: none;
   border-radius: 3px;
   margin-bottom: 30px;
-  color: #444;
+  color: $color-black-primary;
 
   outline: none;
 

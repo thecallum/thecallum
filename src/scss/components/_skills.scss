@@ -8,8 +8,8 @@
 
   &-column {
     // background: orange;
-    border: 2px solid #222;
-    border-color: #ddd;
+    border: 2px solid $color-black-primary;
+    border-color: $color-white-secondary;
     padding: 30px;
     border-radius: 3px;
     width: 100%;
@@ -43,7 +43,7 @@
     font-size: 80px;
     margin: 0 auto;
     display: block;
-    color: #333;
+    color: $color-black-primary;
   }
 
   &-list {
@@ -64,7 +64,7 @@
     display: block;
     margin: 0;
     padding: 0;
-    color: #333;
+    color: $color-black-primary;
     // text-align: center;
     // font-family: "europa";
     font-family: "Montserrat";
@@ -76,7 +76,7 @@
       display: inline-block;
       width: 10px;
       height: 10px;
-      background: hsl(192.5, 46.1%, 32.5%);
+      background: $color-blue-primary;
       border-radius: 25%;
       margin-right: 15px;
     }

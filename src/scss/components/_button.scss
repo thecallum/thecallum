@@ -2,20 +2,18 @@
   color: #0a0a0a;
   text-decoration: none;
   display: block;
-  border: 2px solid #222;
+  border: 2px solid $color-black-primary;
   padding: 15px 30px;
-  background: #fff;
-  // width: 300px;
-  // margin: 0 15px;
-  font-weight: bold;
-  // border-radius: 6px;
+  background: $color-white-primary;
+  font-weight: 500;
   text-transform: uppercase;
   text-align: center;
-  // width: auto;
-
+  cursor: pointer;
   display: flex;
   justify-content: center;
   align-items: center;
+
+  outline: none;
 
   &:visited {
     color: inherit;
@@ -23,9 +21,9 @@
 
   &:hover {
     // border-radius: 50%;
-    // background: #222;
-    // background: hsl(192.5, 46.1%, 32.5%);
-    // color: #fff;
+    // background: $color-black-primary;
+    // background: $color-blue-primary
+    // color: $color-white-primary;
 
     border-style: dashed;
     // background: #f9f9f9;
@@ -37,11 +35,11 @@
 
 .button-white {
   @extend .button;
-  color: #fff;
-  border-color: #fff;
+  color: $color-white-primary;
+  border-color: $color-white-primary;
 
   &:hover {
-    background: #fff;
-    color: #222;
+    background: $color-white-primary;
+    color: $color-black-primary;
   }
 }

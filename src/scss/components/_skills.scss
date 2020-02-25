@@ -1,23 +1,15 @@
 .skills {
   display: grid;
-  // grid-template-columns: 1fr 1fr 1fr;
   grid-template-columns: 1fr;
-  // margin: 0 auto;
-
   grid-gap: 30px;
 
   &-column {
-    // background: orange;
-    border: 2px solid $color-black-primary;
-    border-color: $color-white-secondary;
+    border: 2px solid $color-white-secondary;
     padding: 30px;
     border-radius: 3px;
     width: 100%;
-    // max-width: 600px;
     margin: 0 auto;
-
     display: flex;
-    // justify-content: space-between;
     flex-direction: column;
   }
 
@@ -28,10 +20,6 @@
   }
 
   &-top {
-    // margin-right: 30px;
-    // background: orange;
-    // width: 100%;
-    // max-width: 150px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -39,7 +27,6 @@
   }
 
   &-icon {
-    // height: 60px;
     font-size: 80px;
     margin: 0 auto;
     display: block;
@@ -49,12 +36,8 @@
   &-list {
     margin: 0;
     padding: 0;
-    // margin-top: 30px;
-    // margin-left: 30px;
     width: 100%;
     max-width: 200px;
-
-    // background: orange;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -64,12 +47,8 @@
     display: block;
     margin: 0;
     padding: 0;
-    color: $color-black-primary;
-    // text-align: center;
-    // font-family: "europa";
-    font-family: "Montserrat";
-    // text-transform: ;
     margin-bottom: 5px;
+    font-size: 18px;
 
     &::before {
       content: "";
@@ -85,10 +64,6 @@
 
 @media (min-width: 600px) {
   .skills {
-    // display: grid;
-    // grid-template-columns: 1fr 1fr 1fr;
-    // grid-template-columns: 1fr;
-
     &-column {
       flex-direction: row;
       justify-content: space-between;

@@ -4,7 +4,7 @@ import { Link } from "gatsby"
 
 export default ({ location }) => {
   const isCurrentPage = link => {
-    return window.location.pathname == link.path
+    return window.location.pathname === link.path
   }
 
   return (

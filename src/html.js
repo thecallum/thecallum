@@ -15,6 +15,12 @@ export default function HTML(props) {
           name="viewport"
           content="width=device-width, initial-scale=1.0"
         ></meta>
+        <link
+          href={
+            "https://fonts.googleapis.com/css?family=Roboto:300,400,700|Source+Code+Pro:300,400,700&display=swap"
+          }
+          rel="stylesheet"
+        ></link>
         {props.headComponents}
       </head>
       <body {...props.bodyAttributes}>

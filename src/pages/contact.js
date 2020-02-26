@@ -1,10 +1,12 @@
-import React, { useState } from "react"
+import React, { useState, createRef } from "react"
 import Layout from "../components/layout"
 
 import TextAreaField from "../components/textAreaField"
 import TextInputField from "../components/textInputField"
 
 export default () => {
+  // const formRef = createRef()
+
   const createFieldObject = () => ({
     value: "",
     error: null,
@@ -71,26 +73,28 @@ export default () => {
     return !isError
   }
 
+  const encode = data => {
+    return Object.keys(data)
+      .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+      .join("&")
+  }
+
   const sendRequest = () => {
     return new Promise(resolve => {
-      // setTimeout(() => {
-      //   resolve()
-      // }, 5000)
-      fetch("/contact", {
-        method: "post",
+      fetch("/", {
+        method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: {
-          name,
-          email,
-          message,
-        },
+        body: encode({ "form-name": "contact", name, email, message }),
       })
         .then(res => {
-          console.log("response", res)
+          console.log("res", res)
+          resolve()
         })
-        .catch(e => {
-          console.log("request error", e)
+        .catch(error => {
+          console.log("form error", error)
+          resolve()
         })
+      // resolve()
     })
   }
 
@@ -102,11 +106,12 @@ export default () => {
         <form
           onSubmit={handleSubmit}
           className="form"
-          name="contact"
-          method="post"
-          netlify
-          data-netlift="true"
-          data-netlify-honeypot="bot-field"
+          // data-netlify="true"
+          // data-netlify-honypot="bot-field"
+          // name="contact"
+          // method="post"
+          // action="/contact/success/"
+          // ref={formRef}
         >
           <TextInputField name="name" field={name} updateMethod={setName} />
           <TextInputField name="email" field={email} updateMethod={setEmail} />
@@ -115,6 +120,8 @@ export default () => {
             field={message}
             updateMethod={setMessage}
           />
+
+          {/* <input type="hidden" name="form-name" value="contact" /> */}
 
           {state.loading && <div style={{ margin: "60px 0" }}>Loading...</div>}
           <button className="button" type="submit">

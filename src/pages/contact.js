@@ -11,70 +11,87 @@ export default () => {
   })
 
   const [state, setState] = useState({
-    name: createFieldObject(),
-    email: createFieldObject(),
-    message: createFieldObject(),
+    loading: false,
+    errors: false,
   })
 
-  const update = e => {
-    const { name, value } = e.target
-    // console.log("update", { name, value })
+  const [name, setName] = useState(createFieldObject())
+  const [email, setEmail] = useState(createFieldObject())
+  const [message, setMessage] = useState(createFieldObject())
 
-    setState({
-      ...state,
-      [name]: {
-        ...state[name],
-        value,
-      },
+  const setError = (field, stateUpdateMethod, error) => {
+    stateUpdateMethod({
+      ...field,
+      error,
     })
-  }
-
-  //Only last error appears because using original state value before any method called
-
-  const setError = (field, error) => {
-    setState(() => ({
-      ...state,
-      [field]: {
-        ...state[field],
-        error,
-      },
-    }))
-
-    console.log("stqate updated", field, error)
   }
 
   const handleSubmit = e => {
     e.preventDefault()
 
+    if (state.loading) return
+
+    if (!validateForm()) {
+      setState({ ...state, errors: true })
+      return
+    }
+
+    setState({ loading: true, errors: false })
+
+    sendRequest().then(() => {
+      console.log("request sent")
+      setState({ ...state, loading: false })
+    })
+  }
+
+  const validateForm = () => {
     let isError = false
 
-    if (state.name.value === "") {
-      console.log("name empty")
-      setError("name", "invalid name")
+    if (name.value === "") {
+      setError(name, setName, "invalid name")
       isError = true
     } else {
-      setError("name", null)
+      setError(name, setName, null)
     }
 
-    if (state.email.value === "") {
-      setError("email", "invalid email")
+    if (email.value === "") {
+      setError(email, setEmail, "invalid email")
       isError = true
     } else {
-      setError("email", null)
+      setError(email, setEmail, null)
     }
 
-    if (state.message.value === "") {
-      setError("message", "invalid message")
+    if (message.value === "") {
+      setError(message, setMessage, "invalid message")
       isError = true
     } else {
-      setError("message", null)
+      setError(message, setMessage, null)
     }
 
-    console.table(state)
+    return !isError
+  }
 
-    if (isError) return
-
-    alert("submit")
+  const sendRequest = () => {
+    return new Promise(resolve => {
+      // setTimeout(() => {
+      //   resolve()
+      // }, 5000)
+      fetch("/contact", {
+        method: "post",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: {
+          name,
+          email,
+          message,
+        },
+      })
+        .then(res => {
+          console.log("response", res)
+        })
+        .catch(e => {
+          console.log("request error", e)
+        })
+    })
   }
 
   return (
@@ -82,30 +99,26 @@ export default () => {
       <div className="container">
         <h1>Contact</h1>
 
-        <form onSubmit={handleSubmit} className="form">
-          <TextInputField name="name" field={state.name} update={update} />
-          {/* <TextInputField name="email" field={state.email} update={update} /> */}
-          {/* <TextAreaField name="message" field={state.message} update={update} /> */}
+        <form
+          onSubmit={handleSubmit}
+          className="form"
+          name="contact"
+          method="post"
+          netlify
+        >
+          <TextInputField name="name" field={name} updateMethod={setName} />
+          <TextInputField name="email" field={email} updateMethod={setEmail} />
+          <TextAreaField
+            name="message"
+            field={message}
+            updateMethod={setMessage}
+          />
 
+          {state.loading && <div style={{ margin: "60px 0" }}>Loading...</div>}
           <button className="button" type="submit">
             Submit
           </button>
         </form>
-      </div>
-
-      <div style={{ width: "100vw" }}>
-        <p>Errors</p>
-
-        <ul>
-          {Object.keys(state).map(key => {
-            const field = state[key]
-            return (
-              <li key={key}>
-                [{key}]: {field.error}
-              </li>
-            )
-          })}
-        </ul>
       </div>
     </Layout>
   )

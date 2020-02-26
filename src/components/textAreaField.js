@@ -1,18 +1,29 @@
 import React, { useState } from "react"
 
-export default ({ name, field, update }) => {
+export default ({ name, field, updateMethod }) => {
   const [focus, setFocus] = useState(false)
 
-  const empty = () => field.value === ""
+  const isEmpty = () => field.value === ""
+  const isError = () => field.error !== null
+  const enableToggle = () => !isEmpty() || focus || isError()
+
+  const update = e => {
+    updateMethod({
+      error: field.error,
+      value: e.target.value,
+    })
+  }
 
   return (
     <div className="input-group">
-      <label className={`input-label ${!empty() || focus ? "toggle" : ""}`}>
+      <label
+        className={`input-label ${enableToggle() || focus ? "toggle" : ""}`}
+      >
         {name}
       </label>
       <textarea
         type="text"
-        className="input-textarea"
+        className={`input-textarea ${isError() ? "error" : ""}`}
         value={field.value}
         onChange={update}
         name={name}

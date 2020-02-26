@@ -105,6 +105,8 @@ export default () => {
           name="contact"
           method="post"
           netlify
+          data-netlift="true"
+          data-netlify-honeypot="bot-field"
         >
           <TextInputField name="name" field={name} updateMethod={setName} />
           <TextInputField name="email" field={email} updateMethod={setEmail} />

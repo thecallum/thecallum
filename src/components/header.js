@@ -2,8 +2,9 @@ import React from "react"
 import links from "../constants/links"
 import { Link } from "gatsby"
 
-export default ({ location }) => {
+export default () => {
   const isCurrentPage = link => {
+    if (typeof window === "undefined") return false
     return window.location.pathname === link.path
   }
 

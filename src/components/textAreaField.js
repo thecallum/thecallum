@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 
 export default ({ name, field, update }) => {
-  const [focus, setFocus] = useState(focus)
+  const [focus, setFocus] = useState(false)
 
   const empty = () => field.value === ""
 

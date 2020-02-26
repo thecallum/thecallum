@@ -17,9 +17,12 @@ export default () => {
         <span className="header-logo">thecallum.com</span>
       </div>
 
-      <ul class="header-links">
-        {links.map(link => (
-          <li className={`header-link ${isCurrentPage(link) ? "active" : ""}`}>
+      <ul className="header-links">
+        {links.map((link, index) => (
+          <li
+            key={index}
+            className={`header-link ${isCurrentPage(link) ? "active" : ""}`}
+          >
             <Link to={link.path}>{link.name}</Link>
           </li>
         ))}

@@ -16,6 +16,15 @@
     font-size: 20px;
     color: $color-black-primary;
   }
+
+  &.error {
+    color: $color-error;
+  }
+}
+
+.input-error {
+  color: $color-error;
+  margin: 5px 0;
 }
 
 .input-text,
@@ -28,7 +37,7 @@
   outline: none;
 
   &.error {
-    color: $color-error;
+    // color: $color-error;
     border-color: $color-error;
   }
 }

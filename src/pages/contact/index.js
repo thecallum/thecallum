@@ -24,7 +24,7 @@ const sendRequest = ({ message }) => {
       reject(new Error("Request timed out"))
     }, FETCH_TIMEOUT)
 
-    fetch("https://asdasdsadasdas.adasd", {
+    fetch("/", {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
       body: encode({ "form-name": "contact", ...message }),

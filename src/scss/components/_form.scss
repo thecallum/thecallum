@@ -1,17 +1,19 @@
 .input-group {
   position: relative;
-  margin: 60px 0;
+  margin: 30px 0;
+  padding-top: 30px;
 }
 
 .input-label {
   position: absolute;
   left: 10px;
-  top: 15px;
+  top: 45px;
   z-index: 10;
   transition: all 0.1s ease-in-out;
 
   &.toggle {
-    top: -30px;
+    // top: -30px;
+    top: 0;
     left: 0;
     font-size: 20px;
     color: $color-black-primary;
@@ -27,6 +29,11 @@
   margin: 5px 0;
 }
 
+.form-error {
+  color: $color-error;
+  margin: 30px 0;
+}
+
 .input-text,
 .input-textarea {
   display: block;
@@ -35,6 +42,10 @@
   border-radius: 3px;
   color: $color-black-primary;
   outline: none;
+
+  &:disabled {
+    background: $color-white-primary !important;
+  }
 
   &.error {
     // color: $color-error;
@@ -52,4 +63,55 @@
   height: 150px;
 
   padding: 10px;
+}
+
+.contact-success {
+  border: 10px solid $color-blue-primary;
+  padding: 60px 30px;
+  margin-top: 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  &-title {
+    text-align: center;
+    margin: 0 0 60px;
+
+    &::after {
+      display: none;
+    }
+  }
+
+  &-button {
+    max-width: 300px;
+    margin: 0 auto;
+  }
+}
+
+.contact-control {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+
+  &-button {
+    margin-right: 30px;
+  }
+}
+
+@media (min-width: 600px) {
+  .contact-success {
+    padding: 120px 60px;
+
+    &-title {
+      font-size: 64px;
+    }
+  }
+}
+
+@media (min-width: 900px) {
+  .contact-success {
+    &-title {
+      font-size: 72px;
+    }
+  }
 }

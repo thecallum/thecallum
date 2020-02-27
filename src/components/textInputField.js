@@ -1,18 +1,11 @@
 import React, { useState } from "react"
 
-export default ({ name, field, updateMethod }) => {
+export default ({ name, field, error, update, disabled }) => {
   const [focus, setFocus] = useState(false)
 
-  const isEmpty = () => field.value === ""
-  const isError = () => field.error !== null
+  const isEmpty = () => field === ""
+  const isError = () => !!error
   const enableToggle = () => !isEmpty() || focus || isError()
-
-  const update = e => {
-    updateMethod({
-      error: field.error,
-      value: e.target.value,
-    })
-  }
 
   return (
     <div className="input-group">
@@ -22,13 +15,14 @@ export default ({ name, field, updateMethod }) => {
       <input
         type="text"
         className={`input-text ${isError() ? "error" : ""}`}
-        value={field.value}
+        value={field}
         onChange={update}
         name={name}
         onFocus={() => setFocus(true)}
         onBlur={() => setFocus(false)}
+        disabled={disabled}
       />
-      {isError() && <div className="input-error">{field.error}</div>}
+      {isError() && <div className="input-error">{error}</div>}
     </div>
   )
 }

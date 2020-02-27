@@ -38,7 +38,8 @@
     "react": "^16.11.0",
     "react-dom": "^16.11.0",
     "react-fontawesome": "^1.7.1",
-    "react-helmet": "^5.2.1"
+    "react-helmet": "^5.2.1",
+    "validatorjs": "^3.18.1"
   },
   "devDependencies": {
     "prettier": "^1.19.1"

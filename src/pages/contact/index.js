@@ -8,42 +8,6 @@ import TextInputField from "../../components/textInputField"
 
 import LoadingIcon from "../../components/loadingIcon"
 
-const encode = data => {
-  return Object.keys(data)
-    .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
-    .join("&")
-}
-
-const sendRequest = ({ message }) => {
-  const FETCH_TIMEOUT = 10000
-  let didTimeout = false
-
-  return new Promise((resolve, reject) => {
-    const timeout = setTimeout(() => {
-      didTimeout = true
-      reject(new Error("Request timed out"))
-    }, FETCH_TIMEOUT)
-
-    fetch("/", {
-      method: "POST",
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: encode({ "form-name": "contact", ...message }),
-    })
-      .then(response => {
-        clearTimeout(timeout)
-        if (didTimeout) return
-        if (response.status === 404) reject(response)
-        resolve(response)
-      })
-      .catch(error => {
-        if (didTimeout) return
-        console.log({ error })
-
-        reject(error)
-      })
-  })
-}
-
 export default () => {
   const [requestError, setRequestError] = useState(null)
   const [loading, setLoading] = useState(false)
@@ -76,6 +40,45 @@ export default () => {
         setRequestError("Unknown error! Try again.")
         setLoading(false)
       })
+  }
+
+  const encode = data => {
+    return Object.keys(data)
+      .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+      .join("&")
+  }
+
+  const sendRequest = messageContent => {
+    const FETCH_TIMEOUT = 10000
+    let didTimeout = false
+
+    return new Promise((resolve, reject) => {
+      const timeout = setTimeout(() => {
+        didTimeout = true
+        reject(new Error("Request timed out"))
+      }, FETCH_TIMEOUT)
+
+      fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: encode({
+          "form-name": "contact",
+          ...messageContent,
+        }),
+      })
+        .then(response => {
+          clearTimeout(timeout)
+          if (didTimeout) return
+          if (response.status === 404) reject(response)
+          resolve(response)
+        })
+        .catch(error => {
+          if (didTimeout) return
+          console.log({ error })
+
+          reject(error)
+        })
+    })
   }
 
   const updateField = e => {

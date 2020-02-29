@@ -31,6 +31,18 @@
     color: $color-black-secondary;
     margin-bottom: 30px;
   }
+
+  &-button {
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+}
+
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+  .project:not(:last-child) {
+    margin-bottom: 30px;
+  }
 }
 
 @media (min-width: 600px) {

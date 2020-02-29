@@ -8,7 +8,7 @@ export default ({ project }) => (
       <p className="project-description">{project.summary} </p>
     </div>
 
-    <Link to={`/portfolio/${project.slug}/`} className="button">
+    <Link to={`/portfolio/${project.slug}/`} className="button project-button">
       View Project
     </Link>
   </div>

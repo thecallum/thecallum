@@ -1,14 +1,15 @@
 .skills {
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-gap: 30px;
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: -30px;
 
   &-column {
     border: 2px solid $color-white-secondary;
     padding: 30px;
     border-radius: 3px;
     width: 100%;
-    margin: 0 auto;
+    margin: 0 auto 30px;
+
     display: flex;
     flex-direction: column;
   }
@@ -68,7 +69,6 @@
       flex-direction: row;
       justify-content: space-between;
       width: 480px;
-      margin: 0;
     }
 
     &-top {
@@ -80,12 +80,22 @@
 
 @media (min-width: 1000px) {
   .skills {
-    grid-template-columns: 1fr 1fr 1fr;
+    flex-wrap: nowrap;
 
     &-column {
       flex-direction: column;
       justify-content: flex-start;
-      width: 100%;
+
+      margin-left: 0;
+      margin-right: 0;
+
+      &:not(:first-child) {
+        margin-left: 15px;
+      }
+
+      &:not(:last-child) {
+        margin-right: 15px;
+      }
     }
 
     &-top {

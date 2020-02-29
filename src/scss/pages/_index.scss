@@ -34,15 +34,17 @@
   }
 
   &-links {
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-gap: 30px;
-    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    // grid-template-columns: 1fr;
+    // grid-gap: 30px;
+    margin: 0 auto -30px;
     width: 500px;
     max-width: 100%;
   }
   &-link {
     width: 100%;
+    margin-bottom: 30px;
   }
 }
 
@@ -93,8 +95,17 @@
 @media (min-width: 800px) {
   .index {
     &-links {
-      grid-template-columns: 1fr 1fr 1fr;
+      flex-wrap: nowrap;
       width: 100%;
+    }
+    &-link {
+      &:not(:first-child) {
+        margin-left: 15px;
+      }
+
+      &:not(:last-child) {
+        margin-right: 15px;
+      }
     }
     &-subtitle {
       margin: 60px auto 120px;

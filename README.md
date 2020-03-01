@@ -1,3 +1,9 @@
+# TheCallum
+
+GatsbyJS Portfolio website
+
+## About
+
 TheCallum is my portfolio website. TheCallum is build using GatsbyJS, with the content hosted on Contentful.
 
 Gatsby is a framework build with React. Gatsby is a Static Site Generator. You build your pages and components using React, and Gatsby then compiles this into static assets. 

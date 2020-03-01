@@ -25,16 +25,18 @@ const SkillsColumn = ({ skills, title, icon }) => (
 )
 
 export default ({ data }) => {
-  const { totalCount, nodes: projects } = data.projects
-
-  console.log(projects)
+  const projects = data.projects.nodes
 
   return (
     <Layout>
       <div className="container">
-        <h1>Portfolio</h1>
+        <div>
+          <h1>Portfolio</h1>
+        </div>
 
-        <h2>Skills</h2>
+        <div>
+          <h2>Skills</h2>
+        </div>
 
         <div className="skills">
           <SkillsColumn
@@ -71,7 +73,10 @@ export default ({ data }) => {
           />
         </div>
 
-        <h2>Projects</h2>
+        <div>
+          {" "}
+          <h2>Projects</h2>
+        </div>
 
         <div className="project-list">
           {projects.map((project, index) => (

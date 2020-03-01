@@ -11,7 +11,11 @@ export default () => {
   return (
     <Layout>
       <div className="container">
-        <h1>Contact</h1>
+        <div>
+          <h1>Contact</h1>
+        </div>
+
+        <ContactForm />
 
         <div className="contact-links">
           <a
@@ -27,8 +31,6 @@ export default () => {
             <div className="contact-link-label">Github</div>
           </a>
         </div>
-
-        <ContactForm />
       </div>
     </Layout>
   )

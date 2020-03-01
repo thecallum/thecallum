@@ -106,7 +106,6 @@ export default () => {
 
   return (
     <form onSubmit={handleSubmit} className="form">
-      <h2>Send a Message</h2>
       <TextInputField
         name="name"
         field={values.name}

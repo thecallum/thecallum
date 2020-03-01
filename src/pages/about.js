@@ -4,7 +4,9 @@ import Layout from "../components/layout"
 export default () => (
   <Layout>
     <div className="container">
-      <h1>About</h1>
+      <div>
+        <h1>About</h1>
+      </div>
 
       <p className="about-paragraph">
         It is a long established fact that a reader will be distracted by the

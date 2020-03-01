@@ -1,28 +1,10 @@
 import React from "react"
 import Layout from "../components/layout"
-import { graphql, Link } from "gatsby"
+import { graphql } from "gatsby"
 import Project from "../components/project"
-
-// var FA = require("react-fontawesome")
-// import FA from "react-fontawesome"
+import SkillsColumn from "../components/skillsColumn"
 
 import { faDesktop, faServer, faCode } from "@fortawesome/free-solid-svg-icons"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-
-const SkillsColumn = ({ skills, title, icon }) => (
-  <div className="skills-column">
-    <div className="skills-top">
-      <FontAwesomeIcon className="skills-icon" icon={icon} />
-      <h4 className="skills-title">{title}</h4>
-    </div>
-
-    <ul className="skills-list">
-      {skills.map(skill => (
-        <li className="skills-list-item">{skill}</li>
-      ))}
-    </ul>
-  </div>
-)
 
 export default ({ data }) => {
   const projects = data.projects.nodes
@@ -74,7 +56,6 @@ export default ({ data }) => {
         </div>
 
         <div>
-          {" "}
           <h2>Projects</h2>
         </div>
 

@@ -20,12 +20,20 @@ export default () => (
           href="https://www.linkedin.com/in/callum-macpherson-aa0209159/"
           className="contact-link"
         >
-          <FontAwesomeIcon icon={faLinkedin} className="contact-link-icon" />
+          <FontAwesomeIcon
+            icon={faLinkedin}
+            size="4x"
+            className="contact-link-icon"
+          />
           <div className="contact-link-label">Linkedin</div>
         </a>
 
         <a href="https://github.com/thecallum" className="contact-link">
-          <FontAwesomeIcon icon={faGithub} className="contact-link-icon" />
+          <FontAwesomeIcon
+            icon={faGithub}
+            size="4x"
+            className="contact-link-icon"
+          />
           <div className="contact-link-label">Github</div>
         </a>
       </div>

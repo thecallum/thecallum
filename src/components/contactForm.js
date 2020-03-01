@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import { Link, navigate } from "gatsby"
+import { navigate } from "gatsby"
 import Validator from "validatorjs"
 
 import TextAreaField from "./textAreaField"
@@ -106,7 +106,6 @@ export default () => {
 
   return (
     <form onSubmit={handleSubmit} className="form">
-      <h2>Send a Message</h2>
       <TextInputField
         name="name"
         field={values.name}

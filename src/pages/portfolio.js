@@ -1,40 +1,24 @@
 import React from "react"
 import Layout from "../components/layout"
-import { graphql, Link } from "gatsby"
+import { graphql } from "gatsby"
 import Project from "../components/project"
-
-// var FA = require("react-fontawesome")
-// import FA from "react-fontawesome"
+import SkillsColumn from "../components/skillsColumn"
 
 import { faDesktop, faServer, faCode } from "@fortawesome/free-solid-svg-icons"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-
-const SkillsColumn = ({ skills, title, icon }) => (
-  <div className="skills-column">
-    <div className="skills-top">
-      <FontAwesomeIcon className="skills-icon" icon={icon} />
-      <h4 className="skills-title">{title}</h4>
-    </div>
-
-    <ul className="skills-list">
-      {skills.map(skill => (
-        <li className="skills-list-item">{skill}</li>
-      ))}
-    </ul>
-  </div>
-)
 
 export default ({ data }) => {
-  const { totalCount, nodes: projects } = data.projects
-
-  console.log(projects)
+  const projects = data.projects.nodes
 
   return (
     <Layout>
       <div className="container">
-        <h1>Portfolio</h1>
+        <div>
+          <h1>Portfolio</h1>
+        </div>
 
-        <h2>Skills</h2>
+        <div>
+          <h2>Skills</h2>
+        </div>
 
         <div className="skills">
           <SkillsColumn
@@ -71,7 +55,9 @@ export default ({ data }) => {
           />
         </div>
 
-        <h2>Projects</h2>
+        <div>
+          <h2>Projects</h2>
+        </div>
 
         <div className="project-list">
           {projects.map((project, index) => (
